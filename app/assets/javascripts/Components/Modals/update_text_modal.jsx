@@ -11,24 +11,24 @@ class UpdateTextModal extends React.Component {
     };
   }
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     const value = e.target.value;
     const currentChar = value.length;
-    this.setState({ currentChar });
+    this.setState({currentChar});
   };
 
   render() {
-    const { currentChar, maxChar } = this.state;
+    const {currentChar, maxChar} = this.state;
 
-    return this.props.readyState !== "loading" && (
-      <Modal>
-        <textarea
-          id="description"
-          maxLength={maxChar}
-          onChange={this.handleInputChange}
-        />
-        <div id="descript_amount">{currentChar}/{maxChar}</div>
-      </Modal>
+    return (
+      this.props.readyState !== "loading" && (
+        <Modal>
+          <textarea id="description" maxLength={maxChar} onChange={this.handleInputChange} />
+          <div id="descript_amount">
+            {currentChar}/{maxChar}
+          </div>
+        </Modal>
+      )
     );
   }
 }
